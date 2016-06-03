@@ -1,4 +1,4 @@
-lua-unixtime — Implement of unix_timestamp, from_unixtime function
+lua-unixtime — Implement of unix_timestamp, from_unixtime function. lua time format.
 =====================================
 
 Usage
