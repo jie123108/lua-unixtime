@@ -5,7 +5,7 @@ Usage
 -----
 
 ```lua
-require('unixtime')
+local unixtime = require('unixtime')
 local unix_timestamp = unixtime.unix_timestamp
 local from_unixtime = unixtime.from_unixtime
 
