@@ -13,7 +13,7 @@ test: install
 	lua test/date.lua
 
 clean:
-	rm src/lua-unixtime.o $(BIN)
+	rm -f src/lua-unixtime.o $(BIN)
 
 .PHONY: all install clean test
 .SILENT:

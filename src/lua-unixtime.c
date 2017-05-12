@@ -6,6 +6,12 @@
 #define LUAUNIXTIME_COPYRIGHT   "Copyright (C) 2016, lua-unixtime authors"
 #define LUAUNIXTIME_DESCRIPTION "Implements from_unixtime, unix_timestamp function"
 
+#ifdef __APPLE__
+#define EXPORT __attribute__((visibility("default")))
+#else
+#define EXPORT
+#endif
+
 #if defined (__cplusplus)
 extern "C" {
 #endif
@@ -102,7 +108,7 @@ static const struct luaL_reg R[] =
 extern "C" {
 #endif
 
-LUALIB_API int luaopen_unixtime(lua_State * L)
+EXPORT LUALIB_API int luaopen_unixtime(lua_State * L)
 {
   /*
   * Register module

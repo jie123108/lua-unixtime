@@ -1,0 +1,21 @@
+SRC := src/lua-unixtime.c
+BIN := unixtime.dylib
+
+CFLAGS := -dynamiclib -std=gnu99 -current_version 1.0 -compatibility_version 1.0 -fvisibility=hidden
+
+all: $(BIN)
+
+$(BIN): $(SRC)
+	gcc $(CFLAGS) -I/usr/include/lua5.1 -I/usr/local/ngx_openresty/luajit/include/luajit-2.1/ -Isrc/ -o $@ -L/usr/local/ngx_openresty/luajit/lib -lluajit-5.1 $^
+
+install: all
+	install -m 755 $(BIN) $(DESTDIR)/usr/local/lib/lua/5.1/unixtime.so
+
+test: install
+	lua test/date.lua
+
+clean:
+	rm -f src/lua-unixtime.o $(BIN)
+
+.PHONY: all install clean test
+.SILENT:
